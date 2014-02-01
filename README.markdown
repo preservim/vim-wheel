@@ -2,6 +2,12 @@
 
 > Screen-anchored cursor movement for Vim
 
+<br/>
+
+- - -
+![demo](screenshots/demo.gif)
+- - -
+
 # Features
 
 This plugin merges the standard cursor movement of `j` and `k` with the

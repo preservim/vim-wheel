@@ -1,0 +1,8 @@
+
+Captured with Quicktime.
+
+Processed with:
+
+$ ffmpeg -i in.mov -pix_fmt rgb24 -r 10 -f gif - | \
+  gifsicle --optimize=3 --scale=.5 --delay=10  > demo.gif
+
