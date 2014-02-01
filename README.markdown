@@ -11,10 +11,13 @@ in other applications when using a track pad or mouse wheel to scroll.
 
 This plugin takes Vim a step further in that direction:
 
-* By default, two keys are mapped: «CTRL-J» scrolls doc up and «CTRL-K» down
-* Cursor maintains screen row position when scrolling document with those keys
+* By default, two keys are mapped: «CTRL-J» moves towards end of buffer
+  and «CTRL-K» towards beginning (matching movement of «j» and «k» keys)
+* Cursor maintains screen row position when scrolling document with those
+  keys
 * This behavior tied to track pad/scroll wheel for ‘natural’ scrolling
-* Due to Vim jumpiness, behavior is disabled when `Wrap` is enabled (more details below)
+* Due to Vim jumpiness, behavior is disabled when `Wrap` is enabled (more
+  details below)
 * Pure Vimscript with no dependencies
 
 How is this behavior different from that of «CTRL-E» and «CTRL-Y»? For
