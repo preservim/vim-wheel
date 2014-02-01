@@ -5,19 +5,19 @@
 # Features
 
 Vim users may note that the relative window position of the cursor is
-maintained when scrolling by half-page with <CTRL-U> and <CTRL-D>, at
+maintained when scrolling by half-page with «CTRL-U» and «CTRL-D», at
 least until the start or end of the buffer nears. The behavior can be seen
 in other applications when using a track pad or mouse wheel to scroll.
 
 This plugin takes Vim a step further in that direction:
 
-* By default, two keys are mapped: <CTRL-J> scrolls doc up and <CTRL-K> down
+* By default, two keys are mapped: «CTRL-J» scrolls doc up and «CTRL-K» down
 * Cursor maintains screen row position when scrolling document with those keys
 * This behavior tied to track pad/scroll wheel for ‘natural’ scrolling
 * Due to Vim jumpiness, behavior is disabled when `Wrap` is enabled (more details below)
 * Pure Vimscript with no dependencies
 
-How is this behavior different from that of <CTRL-E> and <CTRL-Y>? For
+How is this behavior different from that of «CTRL-E» and «CTRL-Y»? For
 those mappings, the cursor moves with the document with its position
 relative to the screen changing. Useful, but meeting a different need.
 
