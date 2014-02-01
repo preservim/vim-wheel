@@ -1,28 +1,21 @@
 # vim-wheel
 
-> Screen-anchored scrolling for Vim
+> Screen-anchored cursor movement for Vim
 
 # Features
 
-Vim users may note that the relative window position of the cursor is
-maintained when scrolling by half-page with «CTRL-U» and «CTRL-D», at
-least until the start or end of the buffer nears. The behavior can be seen
-in other applications when using a track pad or mouse wheel to scroll.
+This plugin merges the standard cursor movement of `j` and `k` with the
+scrolling of `<CTRL-E>` and `<CTRL-Y>` to produce a new screen-anchored
+cursor movement. This roughly emulates movement when using a trackpad or
+scroll wheel.
 
-This plugin takes Vim a step further in that direction:
-
-* By default, two keys are mapped: «CTRL-J» moves towards end of buffer
-  and «CTRL-K» towards beginning (matching movement of «j» and «k» keys)
-* Cursor maintains screen row position when scrolling document with those
-  keys
-* This behavior tied to track pad/scroll wheel for ‘natural’ scrolling
-* Due to Vim jumpiness, behavior is disabled when `Wrap` is enabled (more
-  details below)
+* By default, two keys are mapped: `<CTRL-J>` (like `j`) moves towards the
+  end of buffer and `<CTRL-K>` (like `k`) move towards its beginning
+* Movement is tied to trackpad/scroll wheel for ‘natural’ scrolling
+* Due to Vim’s inherent jumpiness with `wrap` enabled, behavior will
+  regress to `gj` and `gk` (more details below)
+* Supports count and Visual selection
 * Pure Vimscript with no dependencies
-
-How is this behavior different from that of «CTRL-E» and «CTRL-Y»? For
-those mappings, the cursor moves with the document with its position
-relative to the screen changing. Useful, but meeting a different need.
 
 ## Installation
 
@@ -43,7 +36,7 @@ let g:wheel#map#down = '<c-j>'
 ### Trackpad/Scroll wheel behavior
 
 By default the scroll behavior of the mouse will reflect this new
-behavior. You can disable if not desired. The ‘reverse’ style is
+behavior. You can disable if not desired.
 
 * Natural - content tracks finger movement on trackpad
 * Reverse - swiping down moves content up
@@ -54,11 +47,10 @@ let g:wheel#map#mouse = 1       " 1=natural, 0=disable, -1=reverse
 
 ### End of buffer threshold
 
-Normal cursor movement kicks in when cursor is this many lines from the
-start or end of the buffer:
+Scrolling ceases when cursor nears the start or end of the buffer:
 
 ```vim
-let g:wheel#line#threshold = 5
+let g:wheel#line#threshold = 5      " lines from start or end
 ```
 
 ## See also
@@ -85,12 +77,12 @@ If you find this plugin useful, you may want to check out these others by
 
 ## Future development
 
-It’d be great to get _wheel_ to work with Wrap mode, but Vim’s CTRL-E and
-CTRL-Y are too jumpy for Wrapped text. If someone can get this working,
-a pull request would be welcome.
+It’d be great to get _wheel_ to work with Wrap mode, but Vim’s `CTRL-E`
+and `CTRL-Y` are too jumpy for large blocks of wrapped text. If someone
+can get this working, a pull request would be welcome.
 
-There’s an experimental horizontal scroll mode hidden within for those who
-wish to try it out.
+There’s an experimental horizontal scrolling movement hidden within for
+those who wish to try it out.
 
 If you’ve spotted a problem or have an idea on improving this plugin,
 please post it to the github project issue page.
