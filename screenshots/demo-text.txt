@@ -1,0 +1,38 @@
+  _   ___          _      ____           __
+ | | / (_)_ _  ___| | /| / / /  ___ ___ / /
+ | |/ / /  ' \/___/ |/ |/ / _ \/ -_) -_) / 
+ |___/_/_/_/_/    |__/|__/_//_/\__/\__/_/  
+                                           
+
+
+
+
+This is the ‘j’ and ‘k’ cursor movement familiar
+to most Vim users. Note how a scroll is forced to
+keep the cursor inside the window.
+
+
+
+
+This is the scrolling of Ctrl-E and Ctrl-Y. Note
+how the cursor remains stationary on the document
+during the scroll.
+
+
+
+
+Vim-wheel combines the two to produce a new
+scrolling cursor movement with Ctrl-J and Ctrl-K,
+where the scroll counters the movement in the
+document to maintain the cursor screen position.
+
+
+
+
+Thanks for watching and enjoy the plugin!
+
+
+
+
+
+
