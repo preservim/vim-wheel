@@ -3,6 +3,6 @@ Captured with Quicktime.
 
 Processed with:
 
-$ ffmpeg -i ~/Desktop/in.mov -s 600x167 -pix_fmt rgb24 -r 10 -f gif - | \
-  gifsicle --optimize=3 --delay=8  > out.gif
+$ ffmpeg -i ~/Desktop/nu2.mov -s 700x191 -pix_fmt rgb24 -r 10 -f gif - | \
+  gifsicle --optimize=3 --delay=10 > ~/demo2.gif
 
