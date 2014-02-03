@@ -42,7 +42,7 @@ let g:wheel#map#down = '<c-j>'
 ### Trackpad/Scroll wheel behavior
 
 By default the scroll behavior of the mouse will reflect this new
-behavior. You can disable if not desired.
+behavior. You can disable in your `.vimrc` if not desired.
 
 * Natural - content tracks finger movement on trackpad
 * Reverse - swiping down moves content up
@@ -53,10 +53,26 @@ let g:wheel#map#mouse = 1       " 1=natural, 0=disable, -1=reverse
 
 ### End of buffer threshold
 
-Scrolling ceases when cursor nears the start or end of the buffer:
+_wheel_’s scrolling will cease when cursor nears the start or end of the
+buffer, regressing to `gj` and `gk`. You can adjust this threshold in your
+`.vimrc`:
 
 ```vim
 let g:wheel#line#threshold = 5      " lines from start or end
+```
+
+### Behavior with wrap
+
+By default, _wheel_’s scrolling behavior will cease when `wrap` is on,
+regressing to `gj` and `gk`. This is due to the jumpiness of `CTRL-E` and
+`CTRL-Y` on large blocks of wrapped text. (If someone can get this
+working, a pull request would be welcome.)
+
+If you don’t mind the jumpiness, you can enable scrolling in your
+`.vimrc`:
+
+```
+let g:wheel#scroll_on_wrap = 0      " 0=disable (default), 1=enable
 ```
 
 ## See also
@@ -84,11 +100,6 @@ If you find this plugin useful, be sure to check out these others by
 [wo]: http://github.com/reedes/vim-wordy
 
 ## Future development
-
-Ideally, we can figure out how to get _wheel_ to work effectively while in
-Wrap mode, but Vim’s `CTRL-E` and `CTRL-Y` are too jumpy for large blocks
-of wrapped text. If someone can get this working, a pull request would be
-welcome.
 
 There’s an experimental horizontal scrolling movement hidden within for
 those who wish to try it out.

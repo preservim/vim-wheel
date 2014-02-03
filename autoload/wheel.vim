@@ -6,27 +6,22 @@
 " License:     The MIT License (MIT)
 " ============================================================================
 
-scriptencoding utf-8
-
-if &cp || (exists('g:autoloaded_wheel')
-      \ && !exists('g:force_reload_wheel'))
-  finish
-endif
-let g:autoloaded_wheel = 1
+if &cp || exists('g:wheel#autoloaded') | finish | endif
 
 function! wheel#VScroll(cmd, visual)
   " cmd: 0=up 1=down
   let l:threshold = max([&scrolloff, g:wheel#line#threshold])
   let l:ln = line('.')
+  let l:regress = &wrap && !g:wheel#scroll_on_wrap
   if a:visual ==# ''
     if a:cmd
-      if &wrap || l:ln <= l:threshold
+      if l:regress || l:ln <= l:threshold
         exe "normal! gj"
       else
         exe "normal! gj\<C-E>"
       endif
     else
-      if &wrap || (line('$') - l:ln) < l:threshold
+      if l:regress || (line('$') - l:ln) < l:threshold
         exe "normal! gk"
       else
         exe "normal! gk\<C-Y>"
@@ -34,13 +29,13 @@ function! wheel#VScroll(cmd, visual)
     endif
   else          " some kind of visual
     if a:cmd
-      if &wrap
+      if l:regress
         exe "normal! gvgj"
       else
         exe "normal! gvgj\<C-E>"
       endif
     else
-      if &wrap
+      if l:regress
         exe "normal! gvgk"
       else
         exe "normal! gvgk\<C-Y>"
@@ -90,3 +85,4 @@ function! wheel#HScroll(cmd, visual)
   endif
 endfunction
 
+let g:wheel#autoloaded = 1

@@ -5,9 +5,8 @@
 " Created:     January 30, 2014
 " License:     The MIT License (MIT)
 " ============================================================================
-"
-if exists('g:loaded_wheel') || &cp | finish | endif
-let g:loaded_wheel = 1
+
+if &cp || exists('g:wheel#loaded') | finish | endif
 
 " Save 'cpoptions' and set Vim default to enable line continuations.
 let s:save_cpo = &cpo
@@ -17,6 +16,11 @@ if !exists('g:wheel#line#threshold')
   " how close to begin/end of file to stop behavior
   " a larger scrolloff will automatically increase this threshold
   let g:wheel#line#threshold = 5
+endif
+
+if !exists('g:wheel#scroll_on_wrap')
+  " if 0, then scrolling is disabled if wrap=1
+  let g:wheel#scroll_on_wrap = 0       " 0=disable, 1=enable
 endif
 
 if !exists('g:wheel#map#mouse')
@@ -65,17 +69,21 @@ if exists('g:wheel#map#right') && g:wheel#map#right != ''
   exe 'vmap <silent> ' . g:wheel#map#right . ' <Plug>WheelRight'
 endif
 
-if !&wrap && g:wheel#map#mouse ==# 1
+let s:regress = &wrap && !g:wheel#scroll_on_wrap
+if !s:regress && g:wheel#map#mouse ==# 1
   " natural
   map <silent> <ScrollWheelDown> <Plug>WheelDown
   map <silent> <ScrollWheelUp>   <Plug>WheelUp
-elseif !&wrap && g:wheel#map#mouse ==# -1
+elseif !s:regress && g:wheel#map#mouse ==# -1
   " reverse
   map <silent> <ScrollWheelDown> <Plug>WheelUp
   map <silent> <ScrollWheelUp>   <Plug>WheelDown
 endif
+unlet s:regress
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
+
+let g:wheel#loaded = 1
 
 " vim:ts=2:sw=2:sts=2
