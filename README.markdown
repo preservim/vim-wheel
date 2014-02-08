@@ -84,7 +84,8 @@ If you find this plugin useful, be sure to check out these others by
 * [vim-lexical][lx] - building on Vim’s spell-check and thesaurus/dictionary completion
 * [vim-litecorrect][lc] - lightweight auto-correction for Vim
 * [vim-pencil][pn] - Rethinking Vim as a tool for writers
-* [vim-quotable][qu] - extends Vim to support typographic (‘curly’) quotes
+* [vim-textobj-quote][qu] - extends Vim to support typographic (‘curly’)
+  quotes
 * [vim-textobj-sentence][ts] - improving on Vim's native sentence motion command
 * [vim-thematic][th] — modify Vim’s appearance to suit your task and environment 
 * [vim-wordy][wo] - uncovering usage problems in writing 
@@ -94,7 +95,7 @@ If you find this plugin useful, be sure to check out these others by
 [pn]: http://github.com/reedes/vim-pencil
 [lx]: http://github.com/reedes/vim-lexical
 [lc]: http://github.com/reedes/vim-litecorrect
-[qu]: http://github.com/reedes/vim-quotable
+[qu]: http://github.com/reedes/vim-textobj-quote
 [ts]: http://github.com/reedes/vim-textobj-sentence
 [th]: http://github.com/reedes/vim-thematic
 [wo]: http://github.com/reedes/vim-wordy
