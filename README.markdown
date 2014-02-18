@@ -20,7 +20,7 @@ scroll wheel.
 * Movement is tied to trackpad/scroll wheel for ‘natural’ scrolling
 * Due to Vim’s inherent jumpiness with `wrap` enabled, behavior will
   regress to `gj` and `gk` (more details below)
-* Supports count and Visual selection
+* Supports Visual selection
 * Pure Vimscript with no dependencies
 
 ## Installation
