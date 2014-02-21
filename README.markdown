@@ -77,17 +77,15 @@ let g:wheel#scroll_on_wrap = 0      " 0=disable (default), 1=enable
 
 ## See also
 
-If you find this plugin useful, be sure to check out these others by
-[@reedes][re]:
+If you find this plugin useful, check out these others by [@reedes][re]:
 
 * [vim-colors-pencil][cp] - color scheme for Vim inspired by IA Writer
 * [vim-lexical][lx] - building on Vim’s spell-check and thesaurus/dictionary completion
 * [vim-litecorrect][lc] - lightweight auto-correction for Vim
 * [vim-pencil][pn] - Rethinking Vim as a tool for writers
-* [vim-textobj-quote][qu] - extends Vim to support typographic (‘curly’)
-  quotes
+* [vim-textobj-quote][qu] - extends Vim to support typographic (‘curly’) quotes
 * [vim-textobj-sentence][ts] - improving on Vim's native sentence motion command
-* [vim-thematic][th] — modify Vim’s appearance to suit your task and environment 
+* [vim-thematic][th] - modify Vim’s appearance to suit your task and environment 
 * [vim-wordy][wo] - uncovering usage problems in writing 
 
 [re]: http://github.com/reedes
