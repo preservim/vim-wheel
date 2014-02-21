@@ -41,45 +41,47 @@ if !exists('g:wheel#map#right')
   let g:wheel#map#right = ''        " CTRL-L
 endif
 
-nnoremap <Plug>WheelUp    :call wheel#VScroll(0, '')<CR>
-vnoremap <Plug>WheelUp    :<C-U>call wheel#VScroll(0, visualmode())<CR>
-nnoremap <Plug>WheelDown  :call wheel#VScroll(1, '')<CR>
-vnoremap <Plug>WheelDown  :<C-U>call wheel#VScroll(1, visualmode())<CR>
+nnoremap <Plug>(WheelUp)    :call wheel#VScroll(0, '')<CR>
+vnoremap <Plug>(WheelUp)    :<C-U>call wheel#VScroll(0, visualmode())<CR>
+nnoremap <Plug>(WheelDown)  :call wheel#VScroll(1, '')<CR>
+vnoremap <Plug>(WheelDown)  :<C-U>call wheel#VScroll(1, visualmode())<CR>
 
-nnoremap <Plug>WheelLeft  :call wheel#HScroll(0, '')<CR>
-vnoremap <Plug>WheelLeft  :<C-U>call wheel#HScroll(0, visualmode())<CR>
-nnoremap <Plug>WheelRight :call wheel#HScroll(1, '')<CR>
-vnoremap <Plug>WheelRight :<C-U>call wheel#HScroll(1, visualmode())<CR>
+nnoremap <Plug>(WheelLeft)  :call wheel#HScroll(0, '')<CR>
+vnoremap <Plug>(WheelLeft)  :<C-U>call wheel#HScroll(0, visualmode())<CR>
+nnoremap <Plug>(WheelRight) :call wheel#HScroll(1, '')<CR>
+vnoremap <Plug>(WheelRight) :<C-U>call wheel#HScroll(1, visualmode())<CR>
 
-if exists('g:wheel#map#up') && g:wheel#map#up != ''
-  exe 'nmap <silent> ' . g:wheel#map#up . ' <Plug>WheelUp'
-  exe 'vmap <silent> ' . g:wheel#map#up . ' <Plug>WheelUp'
-endif
-if exists('g:wheel#map#down') && g:wheel#map#down != ''
-  exe 'nmap <silent> ' . g:wheel#map#down . ' <Plug>WheelDown'
-  exe 'vmap <silent> ' . g:wheel#map#down . ' <Plug>WheelDown'
-endif
+if !exists("g:wheel_no_mappings") || !g:wheel_no_mappings
+  if exists('g:wheel#map#up') && g:wheel#map#up != ''
+    exe 'nmap <silent> ' . g:wheel#map#up . ' <Plug>(WheelUp)'
+    exe 'vmap <silent> ' . g:wheel#map#up . ' <Plug>(WheelUp)'
+  endif
+  if exists('g:wheel#map#down') && g:wheel#map#down != ''
+    exe 'nmap <silent> ' . g:wheel#map#down . ' <Plug>(WheelDown)'
+    exe 'vmap <silent> ' . g:wheel#map#down . ' <Plug>(WheelDown)'
+  endif
 
-if exists('g:wheel#map#left') && g:wheel#map#left != ''
-  exe 'nmap <silent> ' . g:wheel#map#left . ' <Plug>WheelLeft'
-  exe 'vmap <silent> ' . g:wheel#map#left . ' <Plug>WheelLeft'
-endif
-if exists('g:wheel#map#right') && g:wheel#map#right != ''
-  exe 'nmap <silent> ' . g:wheel#map#right . ' <Plug>WheelRight'
-  exe 'vmap <silent> ' . g:wheel#map#right . ' <Plug>WheelRight'
-endif
+  if exists('g:wheel#map#left') && g:wheel#map#left != ''
+    exe 'nmap <silent> ' . g:wheel#map#left . ' <Plug>(WheelLeft)'
+    exe 'vmap <silent> ' . g:wheel#map#left . ' <Plug>(WheelLeft)'
+  endif
+  if exists('g:wheel#map#right') && g:wheel#map#right != ''
+    exe 'nmap <silent> ' . g:wheel#map#right . ' <Plug>(WheelRight)'
+    exe 'vmap <silent> ' . g:wheel#map#right . ' <Plug>(WheelRight)'
+  endif
 
-let s:regress = &wrap && !g:wheel#scroll_on_wrap
-if !s:regress && g:wheel#map#mouse ==# 1
-  " natural
-  map <silent> <ScrollWheelDown> <Plug>WheelDown
-  map <silent> <ScrollWheelUp>   <Plug>WheelUp
-elseif !s:regress && g:wheel#map#mouse ==# -1
-  " reverse
-  map <silent> <ScrollWheelDown> <Plug>WheelUp
-  map <silent> <ScrollWheelUp>   <Plug>WheelDown
+  let s:regress = &wrap && !g:wheel#scroll_on_wrap
+  if !s:regress && g:wheel#map#mouse ==# 1
+    " natural
+    map <silent> <ScrollWheelDown> <Plug>(WheelDown)
+    map <silent> <ScrollWheelUp>   <Plug>(WheelUp)
+  elseif !s:regress && g:wheel#map#mouse ==# -1
+    " reverse
+    map <silent> <ScrollWheelDown> <Plug>(WheelUp)
+    map <silent> <ScrollWheelUp>   <Plug>(WheelDown)
+  endif
+  unlet s:regress
 endif
-unlet s:regress
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
