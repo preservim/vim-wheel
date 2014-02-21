@@ -12,36 +12,37 @@ function! wheel#VScroll(cmd, visual)
   " cmd: 0=up 1=down
   let l:threshold = max([&scrolloff, g:wheel#line#threshold])
   let l:ln = line('.')
-  let l:regress = &wrap && !g:wheel#scroll_on_wrap
+  let l:degrade = &wrap && !g:wheel#scroll_on_wrap
   if a:visual ==# ''
     if a:cmd
-      if l:regress || l:ln <= l:threshold
-        exe "normal! gj"
+      if l:degrade || l:ln <= l:threshold
+        let l:keys = "gj"
       else
-        exe "normal! gj\<C-E>"
+        let l:keys = "gj\<C-E>"
       endif
     else
-      if l:regress || (line('$') - l:ln) < l:threshold
-        exe "normal! gk"
+      if l:degrade || (line('$') - l:ln) < l:threshold
+        let l:keys = "gk"
       else
-        exe "normal! gk\<C-Y>"
+        let l:keys = "gk\<C-Y>"
       endif
     endif
   else          " some kind of visual
     if a:cmd
-      if l:regress
-        exe "normal! gvgj"
+      if l:degrade
+        let l:keys = "gvgj"
       else
-        exe "normal! gvgj\<C-E>"
+        let l:keys = "gvgj\<C-E>"
       endif
     else
-      if l:regress
-        exe "normal! gvgk"
+      if l:degrade
+        let l:keys = "gvgk"
       else
-        exe "normal! gvgk\<C-Y>"
+        let l:keys = "gvgk\<C-Y>"
       endif
     endif
   endif
+  exe "silent normal! " . l:keys
 endfunction
 
 function! wheel#HScroll(cmd, visual)
@@ -49,40 +50,41 @@ function! wheel#HScroll(cmd, visual)
   if a:visual ==# ''
     if &wrap
       if a:cmd
-        exe "normal! l"
+        let l:keys = "l"
       else
-        exe "normal! h"
+        let l:keys = "h"
       endif
     else
       let l:c = col('.')
       let l:e = col('$')
       if a:cmd
         if l:c <# (l:e - &sidescrolloff - 1)
-          exe "normal! zll"
+          let l:keys = "zll"
         elseif l:c <# (l:e - 1)
-          exe "normal! l"
+          let l:keys = "l"
         endif
       elseif l:c ># &sidescrolloff
-        exe "normal! zhh"
+        let l:keys = "zhh"
       elseif l:c ># 1
-        exe "normal! h"
+        let l:keys = "h"
       endif
     endif
   else          " some kind of visual
     if &wrap
       if a:cmd
-          exe "normal! gvl"
+          let l:keys = "gvl"
       else
-          exe "normal! gvh"
+          let l:keys = "gvh"
       endif
     else
       if a:cmd
-          exe "normal! gvzll"
+          let l:keys = "gvzll"
       else
-          exe "normal! gvzhh"
+          let l:keys = "gvzhh"
       endif
     endif
   endif
+  exe "silent normal! " . l:keys
 endfunction
 
 let g:wheel#autoloaded = 1
