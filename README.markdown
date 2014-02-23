@@ -82,6 +82,7 @@ If you find this plugin useful, check out these others by [@reedes][re]:
 * [vim-colors-pencil][cp] - color scheme for Vim inspired by IA Writer
 * [vim-lexical][lx] - building on Vim’s spell-check and thesaurus/dictionary completion
 * [vim-litecorrect][lc] - lightweight auto-correction for Vim
+* [vim-one][vo] - make use of Vim’s _+clientserver_ capabilities 
 * [vim-pencil][pn] - Rethinking Vim as a tool for writers
 * [vim-textobj-quote][qu] - extends Vim to support typographic (‘curly’) quotes
 * [vim-textobj-sentence][ts] - improving on Vim's native sentence motion command
@@ -90,6 +91,7 @@ If you find this plugin useful, check out these others by [@reedes][re]:
 
 [re]: http://github.com/reedes
 [cp]: http://github.com/reedes/vim-colors-pencil
+[vo]: http://github.com/reedes/vim-one
 [pn]: http://github.com/reedes/vim-pencil
 [lx]: http://github.com/reedes/vim-lexical
 [lc]: http://github.com/reedes/vim-litecorrect
