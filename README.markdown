@@ -19,7 +19,7 @@ scroll wheel.
   end of buffer and `<CTRL-K>` (like `k`) move towards its beginning
 * Movement is tied to trackpad/scroll wheel for ‘natural’ scrolling
 * Due to Vim’s inherent jumpiness with `wrap` enabled, behavior will
-  regress to `gj` and `gk` (more details below)
+  degrade to `gj` and `gk` (more details below)
 * Supports Visual selection
 * Pure Vimscript with no dependencies
 
@@ -54,7 +54,7 @@ let g:wheel#map#mouse = 1       " 1=natural, 0=disable, -1=reverse
 ### End of buffer threshold
 
 _wheel_’s scrolling will cease when cursor nears the start or end of the
-buffer, regressing to `gj` and `gk`. You can adjust this threshold in your
+buffer, degrading to `gj` and `gk`. You can adjust this threshold in your
 `.vimrc`:
 
 ```vim
@@ -64,7 +64,7 @@ let g:wheel#line#threshold = 5      " lines from start or end
 ### Behavior with wrap
 
 By default, _wheel_’s scrolling behavior will cease when `wrap` is on,
-regressing to `gj` and `gk`. This is due to the jumpiness of `CTRL-E` and
+degrading to `gj` and `gk`. This is due to the jumpiness of `CTRL-E` and
 `CTRL-Y` on large blocks of wrapped text. (If someone can get this
 working, a pull request would be welcome.)
 
