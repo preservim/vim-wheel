@@ -19,8 +19,7 @@ if !exists('g:wheel#line#threshold')
 endif
 
 if !exists('g:wheel#scroll_on_wrap')
-  " if 0, then scrolling is disabled if wrap=1
-  let g:wheel#scroll_on_wrap = 0       " 0=disable, 1=enable
+  let g:wheel#scroll_on_wrap = 1       " 0=disable, 1=enable (def)
 endif
 
 if !exists('g:wheel#map#mouse')

@@ -18,7 +18,7 @@ scroll wheel.
 * By default, two keys are mapped: `<CTRL-J>` (like `j`) moves towards the
   end of buffer and `<CTRL-K>` (like `k`) move towards its beginning
 * Movement is tied to trackpad/scroll wheel for ‘natural’ scrolling
-* Due to Vim’s inherent jumpiness with `wrap` enabled, behavior will
+* Due to Vim’s inherent jumpiness with `wrap` enabled, you have option to 
   degrade to `gj` and `gk` (more details below)
 * Supports Visual selection
 * Pure Vimscript with no dependencies
@@ -63,16 +63,13 @@ let g:wheel#line#threshold = 5      " lines from start or end
 
 ### Behavior with wrap
 
-By default, _wheel_’s scrolling behavior will cease when `wrap` is on,
-degrading to `gj` and `gk`. This is due to the jumpiness of `CTRL-E` and
-`CTRL-Y` on large blocks of wrapped text. (If someone can get this
-working, a pull request would be welcome.)
-
-If you don’t mind the jumpiness, you can enable scrolling in your
-`.vimrc`:
+With large blocks of wrapped text, Vim’s native scrolling with `CTRL-E`
+and `CTRL-Y` can be jumpy. _wheel_ inherits this behavior, unfortunately.
+If you would prefer that _wheel_ degrade to `gj` and `gk` when `wrap` is on, 
+you can disable the anchored scrolling in your `.vimrc`:
 
 ```
-let g:wheel#scroll_on_wrap = 0      " 0=disable (default), 1=enable
+let g:wheel#scroll_on_wrap = 1      " 0=disable, 1=enable (default)
 ```
 
 ## See also
