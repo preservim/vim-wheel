@@ -6,9 +6,9 @@
 " License:     The MIT License (MIT)
 " ============================================================================
 
-if &cp || exists('g:wheel#autoloaded') | finish | endif
+if &cp || exists('g:wheel#autoloaded') | fini | en
 
-function! wheel#VScroll(cmd, visual)
+fu! wheel#VScroll(cmd, visual)
   " cmd: 0=up 1=down
   let l:threshold = max([&scrolloff, g:wheel#line#threshold])
   let l:ln = line('.')
@@ -16,75 +16,73 @@ function! wheel#VScroll(cmd, visual)
   if a:visual ==# ''
     if a:cmd
       if l:degrade || l:ln <= l:threshold
-        let l:keys = "gj"
-      else
-        let l:keys = "gj\<C-E>"
-      endif
-    else
+        exe "sil norm! gj"
+      el
+        exe "sil norm! gj\<C-E>"
+      en
+    el
       if l:degrade || (line('$') - l:ln) < l:threshold
-        let l:keys = "gk"
-      else
-        let l:keys = "gk\<C-Y>"
-      endif
-    endif
-  else          " some kind of visual
+        exe "sil norm! gk"
+      el
+        exe "sil norm! gk\<C-Y>"
+      en
+    en
+  el          " some kind of visual
     if a:cmd
       if l:degrade
-        let l:keys = "gvgj"
-      else
-        let l:keys = "gvgj\<C-E>"
-      endif
-    else
+        exe "sil norm! gvgj"
+      el
+        exe "sil norm! gvgj\<C-E>"
+      en
+    el
       if l:degrade
-        let l:keys = "gvgk"
-      else
-        let l:keys = "gvgk\<C-Y>"
-      endif
-    endif
-  endif
-  exe "silent normal! " . l:keys
-endfunction
+        exe "sil norm! gvgk"
+      el
+        exe "sil norm! gvgk\<C-Y>"
+      en
+    en
+  en
+endf
 
-function! wheel#HScroll(cmd, visual)
+fu! wheel#HScroll(cmd, visual)
   " cmd: 0=left 1=right
   if a:visual ==# ''
     if &wrap
       if a:cmd
-        let l:keys = "l"
-      else
-        let l:keys = "h"
-      endif
-    else
+        exe "sil norm! l"
+      el
+        exe "sil norm! h"
+      en
+    el
       let l:c = col('.')
       let l:e = col('$')
       if a:cmd
         if l:c <# (l:e - &sidescrolloff - 1)
-          let l:keys = "zll"
-        elseif l:c <# (l:e - 1)
-          let l:keys = "l"
-        endif
-      elseif l:c ># &sidescrolloff
-        let l:keys = "zhh"
-      elseif l:c ># 1
-        let l:keys = "h"
-      endif
-    endif
-  else          " some kind of visual
+          exe "sil norm! zll"
+        elif l:c <# (l:e - 1)
+          exe "sil norm! l"
+        en
+      elif l:c ># &sidescrolloff
+        exe "sil norm! zhh"
+      elif l:c ># 1
+        exe "sil norm! h"
+      en
+    en
+  el          " some kind of visual
     if &wrap
       if a:cmd
-          let l:keys = "gvl"
-      else
-          let l:keys = "gvh"
-      endif
-    else
+        exe "sil norm! gvl"
+      el
+        exe "sil norm! gvh"
+      en
+    el
       if a:cmd
-          let l:keys = "gvzll"
-      else
-          let l:keys = "gvzhh"
-      endif
-    endif
-  endif
-  exe "silent normal! " . l:keys
-endfunction
+        exe "sil norm! gvzll"
+      el
+        exe "sil norm! gvzhh"
+      en
+    en
+  en
+endf
 
 let g:wheel#autoloaded = 1
