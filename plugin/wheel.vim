@@ -26,11 +26,15 @@ if !exists('g:wheel#map#mouse')
   let g:wheel#map#mouse = 1       " 1=natural, 0=disable, -1=reverse
 endif
 
-if !exists('g:wheel#map#up')
+if !exists('g:wheel#map#up') && empty(maparg('<c-k>', 'n'))
   let g:wheel#map#up = '<c-k>'
+else
+  let g:wheel#map#up = ''
 endif
-if !exists('g:wheel#map#down')
+if !exists('g:wheel#map#down') && empty(maparg('<c-j>', 'n'))
   let g:wheel#map#down = '<c-j>'
+else
+  let g:wheel#map#down = ''
 endif
 
 if !exists('g:wheel#map#left')

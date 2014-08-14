@@ -18,7 +18,7 @@ scroll wheel.
 * By default, two keys are mapped: `<CTRL-J>` (like `j`) moves towards the
   end of buffer and `<CTRL-K>` (like `k`) move towards its beginning
 * Movement is tied to trackpad/scroll wheel for ‘natural’ scrolling
-* Due to Vim’s inherent jumpiness with `wrap` enabled, you have option to 
+* Due to Vim’s inherent jumpiness with `wrap` enabled, you have option to
   degrade to `gj` and `gk` (more details below)
 * Supports Visual selection
 * Pure Vimscript with no dependencies
@@ -35,9 +35,12 @@ You can change the behavior of this plugin in your `.vimrc`:
 For instance, you can change the default mappings:
 
 ```vim
-let g:wheel#map#up   = '<c-k>' 
+let g:wheel#map#up   = '<c-k>'
 let g:wheel#map#down = '<c-j>'
 ```
+
+If you have any existing mappings to `<c-k>` or `<c-j>`, they will be
+preserved.
 
 ### Trackpad/Scroll wheel behavior
 
@@ -65,7 +68,7 @@ let g:wheel#line#threshold = 5      " lines from start or end
 
 With large blocks of wrapped text, Vim’s native scrolling with `CTRL-E`
 and `CTRL-Y` can be jumpy. _wheel_ inherits this behavior, unfortunately.
-If you would prefer that _wheel_ degrade to `gj` and `gk` when `wrap` is on, 
+If you would prefer that _wheel_ degrade to `gj` and `gk` when `wrap` is on,
 you can disable the anchored scrolling in your `.vimrc`:
 
 ```
@@ -79,12 +82,12 @@ If you find this plugin useful, check out these others by [@reedes][re]:
 * [vim-colors-pencil][cp] - color scheme for Vim inspired by IA Writer
 * [vim-lexical][lx] - building on Vim’s spell-check and thesaurus/dictionary completion
 * [vim-litecorrect][lc] - lightweight auto-correction for Vim
-* [vim-one][vo] - make use of Vim’s _+clientserver_ capabilities 
+* [vim-one][vo] - make use of Vim’s _+clientserver_ capabilities
 * [vim-pencil][pn] - Rethinking Vim as a tool for writers
 * [vim-textobj-quote][qu] - extends Vim to support typographic (‘curly’) quotes
 * [vim-textobj-sentence][ts] - improving on Vim's native sentence motion command
-* [vim-thematic][th] - modify Vim’s appearance to suit your task and environment 
-* [vim-wordy][wo] - uncovering usage problems in writing 
+* [vim-thematic][th] - modify Vim’s appearance to suit your task and environment
+* [vim-wordy][wo] - uncovering usage problems in writing
 
 [re]: http://github.com/reedes
 [cp]: http://github.com/reedes/vim-colors-pencil
