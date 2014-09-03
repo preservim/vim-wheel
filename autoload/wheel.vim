@@ -59,12 +59,12 @@ fu! wheel#HScroll(cmd, visual)
       if a:cmd
         if l:c <# (l:e - &sidescrolloff - 1)
           exe "sil norm! zll"
-        elif l:c <# (l:e - 1)
+        elsei l:c <# (l:e - 1)
           exe "sil norm! l"
         en
-      elif l:c ># &sidescrolloff
+      elsei l:c ># &sidescrolloff
         exe "sil norm! zhh"
-      elif l:c ># 1
+      elsei l:c ># 1
         exe "sil norm! h"
       en
     en
