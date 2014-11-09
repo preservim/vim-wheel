@@ -32,11 +32,18 @@ manager.
 
 You can change the behavior of this plugin in your `.vimrc`:
 
-For instance, you can change the default mappings:
+For instance, the default mappings of:
 
 ```vim
 let g:wheel#map#up   = '<c-k>'
 let g:wheel#map#down = '<c-j>'
+```
+
+...can be changed to use the Command key in MacVim:
+
+```vim
+let g:wheel#map#up   = '<D-k>'
+let g:wheel#map#down = '<D-j>'
 ```
 
 If you have any existing mappings to `<c-k>` or `<c-j>`, they will be
