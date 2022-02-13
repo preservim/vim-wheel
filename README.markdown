@@ -5,7 +5,7 @@
 <br/>
 
 - - -
-![demo](http://i.imgur.com/kTSkSB2.gif)
+![demo](https://i.imgur.com/kTSkSB2.gif)
 - - -
 
 # Features
@@ -25,8 +25,15 @@ scroll wheel.
 
 ## Installation
 
-Install using Pathogen, Vundle, Neobundle, or your favorite Vim package
-manager.
+You can install using your favorite Vim package manager. (E.g.,
+[Pathogen][pathogen], [Vundle][vundle], or [Plug][plug].) If you are using
+a recent version of vim or neovim, you can also use native package
+support. (See [:help packages][packages].)
+
+[pathogen]: https://github.com/tpope/vim-pathogen
+[vundle]: https://github.com/VundleVim/Vundle.vim
+[plug]: https://github.com/junegunn/vim-plug
+[packages]: https://vimhelp.org/repeat.txt.html#packages
 
 ## Configuration
 
@@ -84,12 +91,12 @@ let g:wheel#scroll_on_wrap = 1      " 0=disable, 1=enable (default)
 
 ## See also
 
-If you find this plugin useful, check out these others by [@reedes][re]:
+If you find this plugin useful, check out these others originally by
+[@reedes][re]:
 
 * [vim-colors-pencil][cp] - color scheme for Vim inspired by IA Writer
 * [vim-lexical][lx] - building on Vim’s spell-check and thesaurus/dictionary completion
 * [vim-litecorrect][lc] - lightweight auto-correction for Vim
-* [vim-one][vo] - make use of Vim’s _+clientserver_ capabilities
 * [vim-pencil][pn] - Rethinking Vim as a tool for writers
 * [vim-textobj-quote][qu] - extends Vim to support typographic (‘curly’) quotes
 * [vim-textobj-sentence][ts] - improving on Vim's native sentence motion command
@@ -97,17 +104,16 @@ If you find this plugin useful, check out these others by [@reedes][re]:
 * [vim-wordy][wo] - uncovering usage problems in writing
 * [vim-wordchipper][wc] - power tool for shredding text in Insert mode
 
-[re]: http://github.com/reedes
-[cp]: http://github.com/reedes/vim-colors-pencil
-[vo]: http://github.com/reedes/vim-one
-[pn]: http://github.com/reedes/vim-pencil
-[lx]: http://github.com/reedes/vim-lexical
-[lc]: http://github.com/reedes/vim-litecorrect
-[qu]: http://github.com/reedes/vim-textobj-quote
-[ts]: http://github.com/reedes/vim-textobj-sentence
-[th]: http://github.com/reedes/vim-thematic
-[wo]: http://github.com/reedes/vim-wordy
-[wc]: http://github.com/reedes/vim-wordchipper
+[re]: https://github.com/reedes
+[cp]: https://github.com/preservim/vim-colors-pencil
+[pn]: https://github.com/preservim/vim-pencil
+[lx]: https://github.com/preservim/vim-lexical
+[lc]: https://github.com/preservim/vim-litecorrect
+[qu]: https://github.com/preservim/vim-textobj-quote
+[ts]: https://github.com/preservim/vim-textobj-sentence
+[th]: https://github.com/preservim/vim-thematic
+[wo]: https://github.com/preservim/vim-wordy
+[wc]: https://github.com/preservim/vim-wordchipper
 
 ## Future development
 
@@ -115,5 +121,7 @@ There’s an experimental horizontal scrolling movement hidden within for
 those who wish to try it out.
 
 If you’ve spotted a problem or have an idea on improving this plugin,
-please post it to the github project issue page.
+please post it to the [GitHub project issue page][issues].
+
+[issues]: https://github.com/preservim/vim-wheel/issues
 
