@@ -1,7 +1,7 @@
 " ============================================================================
 " File:        wheel.vim
 " Description: autoload functions for vim-wheel plugin
-" Maintainer:  Reed Esau <github.com/reedes>
+" Maintainer:  preservim <https://github.com/preservim>
 " Created:     February 01, 2014
 " License:     The MIT License (MIT)
 " ============================================================================

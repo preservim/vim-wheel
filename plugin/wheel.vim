@@ -1,7 +1,7 @@
 " ============================================================================
 " File:        wheel.vim
 " Description: vim-wheel plugin
-" Maintainer:  Reed Esau <github.com/reedes>
+" Maintainer:  preservim <https://github.com/preservim>
 " Created:     January 30, 2014
 " License:     The MIT License (MIT)
 " ============================================================================
